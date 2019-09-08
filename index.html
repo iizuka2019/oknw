@@ -182,8 +182,6 @@
 	
   <!-- footer -->
 <footer class="section footer">
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-<script src="index.js"></script>
 	
  <div id="board">
     <h2 class="board-title">要望・感想</h2>
@@ -225,16 +223,6 @@ firebase.initializeApp(config);
         </script>
 	 
 	 
-    <ul class="lists" style="list-style-type: none">
-      <board-list v-for="(list, key) in lists"
-        :key="key"
-        :name="list.name"
-        :message="list.message"
-        :date="list.date">
-      </board-list>
-
-    </ul>
-    <board-form v-on:input="doAdd"></board-form>
   </div>
 	
 	
@@ -254,7 +242,7 @@ firebase.initializeApp(config);
 </footer>
 <!-- footer --> 
 <!-- JS FILES --> 
-<!--	
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> 
 <script src="js/bootstrap.min.js"></script> 
 <script src="js/jquery.flexslider-min.js"></script> 
@@ -263,7 +251,6 @@ firebase.initializeApp(config);
 <script src="js/retina.min.js"></script> 
 <script src="js/modernizr.js"></script> 
 <script src="js/main.js"></script>
--->
 </body>
 </html>
 
