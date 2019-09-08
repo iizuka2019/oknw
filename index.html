@@ -193,7 +193,19 @@
 <button id="send">投稿</button>
 </div>
 <ul id="messages"></ul>
- <script>
+	 
+   <script>
+// Initialize Firebase
+var config = {
+    apiKey: "AIzaSyD8dLbjsybfr4kIKB6mMjRWDnrWIrufzjw",
+    authDomain: "oknw-2019.firebaseapp.com",
+    databaseURL: "https://oknw-2019.firebaseio.com",
+    projectId: "oknw-2019",
+    storageBucket: "",
+    messagingSenderId: "97432624085"
+};
+firebase.initializeApp(config);
+		   
             // データベースの参照を準備
             var messagesRef = firebase.database().ref().child('messages')
         
