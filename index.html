@@ -18,10 +18,35 @@
 <link rel="stylesheet" href="css/animate.min.css">
 <link rel="stylesheet" href="css/font-icon.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+	//<===========取得したスニペットを貼り付け=========
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/6.6.0/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#config-web-app -->
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyD8dLbjsybfr4kIKB6mMjRWDnrWIrufzjw",
+    authDomain: "oknw-2019.firebaseapp.com",
+    databaseURL: "https://oknw-2019.firebaseio.com",
+    projectId: "oknw-2019",
+    storageBucket: "",
+    messagingSenderId: "97432624085",
+    appId: "1:97432624085:web:aeaae8c1c417db11637b5c"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+</script>
+//=====================================>
+	
 </head>
 
 <body>
-
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script src="index.js"></script>
 	<!-- header section -->
 <section class="banner" role="banner">
 <!--header navigation -->
@@ -29,8 +54,8 @@
     <div class="header-content clearfix"> <a class="logo" href="index.html"><img src="images/logo.png" alt=""></a>
       <nav class="navigation" role="navigation">
         <ul class="primary-nav">
-          <li><a href="about.html">About me</a></li>
-          <li><a href="contact.html">Contact</a></li>
+          <li><a href="#">About me</a></li>
+          <li><a href="#">Contact</a></li>
 		  <li><a href="#">External Link</a></li>
         </ul>
       </nav>
@@ -65,7 +90,7 @@
             <div class="col-md-12">
               <blockquote>
                 <h1>行けなくなったので</h1>
-                <p>企画倒れです。。</p>
+                <p>企画倒れです。メンタル的にも</p>
               </blockquote>
             </div>
           </li>
@@ -155,6 +180,21 @@
   </div>
 </section>
 <!-- portfolio section --> 
+	
+ <div id="board">
+    <h2 class="board-title">要望・感想</h2>
+    <ul class="lists" style="list-style-type: none">
+      <board-list v-for="(list, key) in lists"
+        :key="key"
+        :name="list.name"
+        :message="list.message"
+        :date="list.date">
+      </board-list>
+
+    </ul>
+    <board-form v-on:input="doAdd"></board-form>
+  </div>
+	
   <!-- footer -->
 <footer class="section footer">
   <div class="footer-bottom">
@@ -162,12 +202,11 @@
       <div class="col-md-12">
         <p>
         <ul class="footer-share">
-          <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-          <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+          <li><a href="https://www.facebook.com/takanoex/"><i class="fa fa-facebook"></i></a></li>
+          <li><a href="https://twitter.com/tsunamayo_wa"><i class="fa fa-twitter"></i></a></li>
         </ul>
         </p>
-        <p>© 2019 All rights reserved. All Rights Reserved<br>
-          Made with <i class="fa fa-heart pulse"></i> by <a href="http://kamalchaneman.com/">Designstub</a></p>
+        <p>© 2019 All rights reserved. All Rights Reserved</p>
       </div>
     </div>
   </div>
