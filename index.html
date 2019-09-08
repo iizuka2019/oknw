@@ -184,6 +184,32 @@
 	
  <div id="board">
     <h2 class="board-title">要望・感想</h2>
+<div>
+<input id="name" placeholder="名前">
+<input id="message" placeholder="メッセージ">
+<button id="send">投稿</button>
+</div>
+<ul id="messages"></ul>
+ <script>
+            // データベースの参照を準備
+            var messagesRef = firebase.database().ref().child('messages')
+        
+            // 既存メッセージを表示
+            messagesRef.on('child_added', function(snapshot) {
+                var msg = snapshot.val();
+                $('<li>').text(msg.name + ': ' + msg.body).prependTo('#messages');
+            });
+        
+            $('#send').click(function() {
+                // 新規メッセージを投稿
+                messagesRef.push({
+                    name: $('#name').val(),
+                    body: $('#message').val()
+                });
+            });
+        </script>
+	 
+	 
     <ul class="lists" style="list-style-type: none">
       <board-list v-for="(list, key) in lists"
         :key="key"
